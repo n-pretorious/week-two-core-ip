@@ -1,0 +1,9 @@
+<ul *ngFor='let user of users'>
+  <a href="{{ user.html_url }}">
+    <p>
+      <img class="avatar" src="{{ user.avatar_url}}" alt="">
+      {{ user.login }}
+      <button>Repositories</button>
+    </p>
+  </a>
+</ul>
