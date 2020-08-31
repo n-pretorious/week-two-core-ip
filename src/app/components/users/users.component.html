@@ -1,6 +1,6 @@
 <div *ngIf="profile">
-  <div class="card pr-0">
-    <div class="card-header">
+  <div class="card">
+    <div class="card-header lead">
       {{profile.name}} <small>({{profile.login}})</small>
       <span *ngIf="profile.company">, Works at {{profile.company}}</span>
       {{profile.location}}
@@ -13,13 +13,18 @@
         </div>
         <div class="col-sm-4">
           <div>
-            <p>
-              <span class="badge badge-secondary mr-2">{{profile.followers}} Followers</span>
-              <span class="badge badge-secondary mr-2">Following {{profile.following}}</span>
-              <span class="badge badge-info">{{profile.public_repos}} Public Repos</span>
-            </p>
-            <p><a href="{{profile.html_url}}" target="_blank" class="btn btn-success btn-sm">View profile on github</a>
-            </p>
+            <div>
+              <p>
+                <span class="badge badge-secondary mr-2">{{profile.followers}} Followers</span>
+                <span class="badge badge-secondary mr-2">Following {{profile.following}}</span>
+                <span class="badge badge-info">{{profile.public_repos}} Public Repos</span>
+              </p>
+            </div>
+            <div class="mx-auto" id="profileUrl">
+              <p><a href="{{profile.html_url}}" target="_blank" class="btn btn-success btn-sm">View profile on
+                  github</a>
+              </p>
+            </div>
           </div>
         </div>
 
@@ -33,23 +38,22 @@
             </li>
           </ul>
         </div>
-
-
       </div>
 
-      <div class="row">
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title">Repos</h3>
-          </div>
+      <div class="row mt-2">
+        <div class="container-fluid">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Repos</h3>
+            </div>
 
-          <div class="card-body" *ngFor="let repo of repos">
-            <p class="clearfix">
-              {{repo.name}} <a href="{{repo.html_url}}" target="_blank" class="btn btn-sm btn-dark float-right">View
-                project on github</a>
-            </p>
-            <p class="text-info">{{repo.description}}</p>
-            <hr>
+            <div class="card-body" *ngFor="let repo of repos">
+              <p class="clearfix">
+                {{repo.name}} <a href="{{repo.html_url}}" target="_blank" class="btn btn-sm btn-dark float-right">View
+                  project on github</a>
+              </p>
+              <p class="text-info border-bottom">{{repo.description}}</p>
+            </div>
           </div>
         </div>
       </div>

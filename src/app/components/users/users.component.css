@@ -3,3 +3,7 @@
   height: 150px;
   border-radius: 50%;
 }
+
+#profileUrl {
+  width: 200px;
+}
