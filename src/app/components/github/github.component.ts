@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GithubService } from 'src/app/services/github.service';
+import { Profile } from 'src/app/profile';
+import { Repos } from 'src/app/repos';
 
 @Component({
   selector: 'app-github',
@@ -7,12 +9,17 @@ import { GithubService } from 'src/app/services/github.service';
   styleUrls: ['./github.component.css']
 })
 export class GithubComponent implements OnInit {
-  profile: any[];
-  repos: any[];
+  profile: Profile[];
+  repos: Repos[];
 
   constructor(private githubService: GithubService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+
+  // tslint:disable-next-line: typedef
+  searchProfile(username) {
+    this.githubService.updateProfile(username);
+
     this.githubService.getProfile().subscribe(profile => {
       this.profile = profile;
     });

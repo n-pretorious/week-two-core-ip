@@ -2,8 +2,8 @@
   <form>
     <div class="form-group">
 
-      <input type="text" class="form-control" placeholder="Search github user's profile with username"
-        [(ngModel)]="username" name="username" (keyup)="findProfile()">
+      <input type="text" class="form-control" id="userName" [(ngModel)]='username' name="userName"
+        (keyup)='submitUser()' placeholder="Search github user's profile with username">
 
     </div>
   </form>

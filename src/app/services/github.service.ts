@@ -10,21 +10,27 @@ import { Profile } from '../profile';
 })
 export class GithubService {
 
-  // profiles: Profile;
+  profile = new Profile('');
 
-  private userName: string;
+  constructor(private http: HttpClient) { }
 
-  constructor(private http: HttpClient) {
-    this.userName = 'profnandaa';
+  // tslint:disable-next-line: typedef
+  updateProfile(username: string) {
+    this.profile.userName = username;
   }
 
   getProfile(): Observable<any> {
     const url = 'https://api.github.com/users/';
-    return this.http.get(url + this.userName + '?access_token=' + environment.apiKey);
+    const profileUrl =  this.http.get(url + this.profile.userName + '?access_token=' + environment.apiKey);
+
+    return profileUrl;
   }
 
   getPublicRepos(): Observable<any> {
     const url = 'https://api.github.com/users/';
-    return this.http.get(url + this.userName + '/repos?access_token=' + environment.apiKey);
+    const reposUrl =  this.http.get(url + this.profile.userName + '/repos?access_token=' + environment.apiKey);
+
+    return reposUrl;
   }
+
 }

@@ -1,7 +1,6 @@
 export class Profile {
 
   constructor(
-    public userName: string,
-    public repositories: string[],
+    public userName: string
   ) { }
 }
