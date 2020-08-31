@@ -1,9 +1,54 @@
-<ul *ngFor='let user of users'>
-  <a href="{{ user.html_url }}">
-    <p>
-      <img class="avatar" src="{{ user.avatar_url}}" alt="">
-      {{ user.login }}
-      <button>Repositories</button>
-    </p>
-  </a>
-</ul>
+<div *ngIf="profile">
+  <div class="card">
+    <div class="card-header">
+      {{profile.name}} <small>({{profile.login}})</small>
+      <span *ngIf="profile.company">, Works at {{profile.company}}</span>
+      {{profile.location}}
+    </div>
+
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-3">
+          <img id="avatar" src="{{profile.avatar_url}}" class="img-responsive" alt="Profile Image">
+        </div>
+
+        <div class="col-sm-5">
+          <ul class="list-group">
+            <li class="list-group-item" *ngIf="profile.bio">{{profile.bio}}</li>
+            <li class="list-group-item text-info" *ngIf="profile.hireable">Available for hire</li>
+            <li class="list-group-item" *ngIf="profile.blog">Websites: <a href="{{profile.blog}}"
+                target="_blank">{{profile.blog}}</a></li>
+            <li class="list-group-item" *ngIf="profile.email"><a href="emailto:{{profile.email}}">{{profile.email}}</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-sm-4">
+          <div>
+            <p>
+              <span class="badge badge-secondary mr-2">{{profile.followers}} Followers</span>
+              <span class="badge badge-secondary mr-2">Following {{profile.following}}</span>
+              <span class="badge badge-info">{{profile.public_repos}} Public Repos</span>
+            </p>
+            <p><a href="{{profile.html_url}}" target="_blank" class="btn btn-success btn-sm">View profile on github</a>
+            </p>
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Repos</h3>
+              </div>
+
+              <div class="card-body" *ngFor="let repo of repos">
+                <p class="clearfix">
+                  {{repo.name}} <a href="{{repo.html_url}}" target="_blank"
+                    class="btn btn-sm btn-dark float-right">View project on github</a>
+                </p>
+                <p class="text-info">{{repo.description}}</p>
+                <hr>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

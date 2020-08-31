@@ -7,18 +7,18 @@ import { GithubService } from 'src/app/services/github.service';
   styleUrls: ['./github.component.css']
 })
 export class GithubComponent implements OnInit {
-  users: string[];
+  profile: any[];
+  repos: any[];
 
   constructor(private githubService: GithubService) { }
 
   ngOnInit(): void {
-  }
+    this.githubService.getProfile().subscribe(profile => {
+      this.profile = profile;
+    });
 
-  // tslint:disable-next-line: typedef
-  getUsers() {
-    this.githubService.getData().subscribe(data => {
-      console.log(data);
-      this.users = data;
+    this.githubService.getPublicRepos().subscribe(repos => {
+      this.repos = repos;
     });
   }
 
