@@ -1,15 +1,20 @@
-<div class="container">
-  <div class="card">
+<div class="container-fluid">
+  <div>
+    <div class="card bg-dark text-white" id="parent">
+      <img class="card-img" src="../../../assets/images/github2.jpeg" alt="Card image">
+      <div class="card-img-overlay">
+        <div class="card-header mb-2 border-bottom-0">
+          <h1 class="text-center text-muted text-uppercase display-3">Github Intergration</h1>
+        </div>
 
-    <div class="card-header mb-2 border-bottom-0">
-      <h1 class="text-center text-muted text-uppercase display-3">Github Intergration</h1>
-    </div>
-  
-    <div>
-      <app-git-profile-form (searchProfile)='searchProfile($event)'></app-git-profile-form>
-    </div>
-    <div>
-      <app-users [profile]='profile' [repos]='repos'></app-users>
+        <div>
+          <app-git-profile-form (searchProfile)='searchProfile($event)'></app-git-profile-form>
+        </div>
+        <hr>
+        <div>
+          <app-users [profile]='profile' [repos]='repos'></app-users>
+        </div>
+      </div>
     </div>
   </div>
 </div>

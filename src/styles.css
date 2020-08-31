@@ -1,1 +1,7 @@
 @import "~bootstrap/dist/css/bootstrap.css";
+
+body {
+  height: 100%;
+  font-size: 150%;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}

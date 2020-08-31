@@ -1,3 +1,6 @@
+.bio {
+  background-color: rgb(48, 21, 2);
+}
 #avatar {
   width: 150px;
   height: 150px;
@@ -5,5 +8,17 @@
 }
 
 #profileUrl {
-  width: 200px;
+  width: 500px;
+}
+
+.list-group-item {
+  background-color: transparent;
+  border: 1px solid #ddd;
+  border-radius: 0;
+  color: #fff;
+}
+
+.repos {
+  height: 50vh;
+  overflow-y: scroll;
 }
