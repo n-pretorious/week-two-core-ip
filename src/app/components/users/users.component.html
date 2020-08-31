@@ -1,6 +1,6 @@
 <div *ngIf="profile">
   <div class="card-body ">
-    <div class="row pt-3 pb-3 border-top border-right border-left bio">
+    <div class="row border-top border-right border-left bio">
       <div class="col-sm-2 my-auto border-right">
         <img id="avatar" src="{{ profile.avatar_url }}" class="img-responsive mx-auto d-block" alt="Profile Image">
       </div>
@@ -44,7 +44,7 @@
     <div class="row pt-3 border rounded">
       <div class="container-fluid repos mh-100">
         <div class="card-header border-bottom">
-          <h3 class="card-title">Repos</h3>
+          <h3 class="card-title text-center">Repos</h3>
         </div>
 
         <div class="card-body" *ngFor="let repo of repos">

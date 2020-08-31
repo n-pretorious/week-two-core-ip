@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'github', component: GithubComponent },
   { path: 'userProfile', component: UsersComponent },
   { path: 'about', component: AboutComponent },
+  { path: '', redirectTo: '/github', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },  // Wildcard route for a 404 page
 ];
 
